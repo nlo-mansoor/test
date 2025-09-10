@@ -34,18 +34,22 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       if (functions.isTrue()) {
-        await actions.getInfo(
-          'bob',
-          true,
-          false,
-        );
+        _model.shouldBeTrue = true;
+        safeSetState(() {});
+        _model.shouldBeCoding = false;
+        safeSetState(() {});
       } else {
-        await actions.getInfo(
-          'bob',
-          false,
-          true,
-        );
+        _model.shouldBeCoding = true;
+        safeSetState(() {});
+        _model.shouldBeTrue = false;
+        safeSetState(() {});
       }
+
+      await actions.getInfo(
+        FFAppConstants.UNINAME,
+        _model.shouldBeTrue,
+        _model.shouldBeCoding,
+      );
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
