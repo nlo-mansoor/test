@@ -14,7 +14,3 @@ String? newCustomFunction() {
   print("bdfsfruhdsadda");
   return "";
 }
-
-bool isTrue() {
-  return true;
-}

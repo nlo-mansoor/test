@@ -14,5 +14,6 @@ Future<String> getInfo(
   bool isTrue,
   bool shouldCode,
 ) async {
+  print("Hello World");
   return isTrue && shouldCode ? name : "fasle";
 }
